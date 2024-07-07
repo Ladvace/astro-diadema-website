@@ -15,7 +15,21 @@ export default defineConfig({
       },
     }),
   ],
+  rules: [
+    [
+      "dotted-bg",
+      {
+        "background-image":
+          "radial-gradient(rgba(255, 255, 255, 0.10) 2px, transparent 0);",
+        "background-size": "40px 40px;",
+      },
+    ],
+  ],
   theme: {
+    height: {
+      navbar: "104px",
+      "body-with-navbar": "calc(100vh - 104px)",
+    },
     colors: {
       secondary: {
         900: "#101018",

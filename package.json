@@ -22,6 +22,8 @@
     "@unocss/preset-uno": "^0.61.3",
     "@unocss/preset-web-fonts": "^0.61.3",
     "@unocss/reset": "^0.61.3",
+    "lenis": "^1.1.6",
+    "motion": "^10.18.0",
     "unocss": "^0.61.3"
   }
 }

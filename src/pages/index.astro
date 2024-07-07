@@ -1,18 +1,30 @@
 ---
-import '../../global.css';
-import 'virtual:uno.css'
-
+import BasicLayout from "../layouts/BasicLayout.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BasicLayout title="Home" description="Home Page">
+  <div
+    slot="loader"
+    class="loader bg-secondary-900 text-neutral-50 text-3xl font-black uppercase flex justify-center items-center w-screen h-screen z-50 fixed top-0 bottom-0 right-0 left-0"
+  >
+  </div>
+  <div class="w-screen h-screen sticky top-0 dotted-bg">
+    <Navbar />
+    <div
+      class="h-body-with-navbar w-full flex flex-col justify-center items-center gap-10"
+    >
+      <div class="flex flex-col justify-center items-center gap-2.5">
+        <h1 class="text-9xl font-bold leading-[0.8]">
+          Diadema <br />
+          <span class="font-normal">Studio</span>
+        </h1>
+        <p class="text-2xl">Innovate, Design, Inspire</p>
+      </div>
+      <button class="rounded-lg bg-amber px-5 py-2.5 text-secondary-900 ">Get in touch</button>
+    </div>
+  </div>
+  <div class="w-screen h-screen sticky top-0 bg-secondary-800 rounded-t-3xl">
+  </div>
+  <!-- <div class="w-screen h-screen sticky top-0 bg-secondary-700 rounded-t-2xl"></div> -->
+</BasicLayout>

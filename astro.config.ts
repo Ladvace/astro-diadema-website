@@ -5,7 +5,7 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [unocss(), sitemap()],
+  integrations: [unocss({ injectReset: true }), sitemap()],
   output: "server",
   adapter: vercel(),
 });

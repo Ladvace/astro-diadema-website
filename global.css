@@ -4,7 +4,7 @@
   body {
     font-family: "Inter", sans-serif;
     background-color: theme("colors.secondary.900");
-    color: theme("colors.secondary.100");
+    color: theme("colors.secondary.50");
   }
 
   h1,
@@ -15,5 +15,4 @@
   h6 {
     font-family: "Clash Grotesk", sans-serif;
   }
-
 }
