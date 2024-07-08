@@ -4,14 +4,28 @@ import Logo from "./Logo.astro";
 
 <header class="w-full flex flex-col h-navbar">
   <div class="w-full p-5 h-20 flex justify-center items-center">
-    <span class="w-20 lg:w-15">
+    <span
+      class="w-20 lg:w-15 hover:transform-rotate-10 transition-transform ease-in-out"
+    >
       <Logo />
     </span>
   </div>
-  <nav class="hidden w-full lg:flex justify-center items-center gap-10">
-    <a class="cursor-pointer">Projects</a>
-    <a class="cursor-pointer">About</a>
-    <a class="cursor-pointer">Services</a>
-    <!-- <a class="cursor-pointer">Contact</a> -->
-  </nav>
 </header>
+<nav class="w-full flex justify-center items-center gap-10">
+  <div
+    class="flex lg:hidden relative border-2 border-amber rounded-full w-20 h-20 flex justify-center items-center"
+  >
+    <div
+      class="w-10 h-1 bg-amber rounded-full -transform-rotate-40 absolute left-1/2 -transform-translate-1/2"
+    >
+    </div>
+    <div
+      class="w-10 h-1 bg-amber rounded-full transform-rotate-40 absolute left-1/2 -transform-translate-1/2"
+    >
+    </div>
+  </div>
+  <a class="cursor-pointer hidden lg:flex">Projects</a>
+  <a class="cursor-pointer hidden lg:flex">About</a>
+  <a class="cursor-pointer hidden lg:flex">Services</a>
+  <!-- <a class="cursor-pointer">Contact</a> -->
+</nav>

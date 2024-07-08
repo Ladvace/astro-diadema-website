@@ -118,7 +118,7 @@ const schema = {
     <link rel="preconnect" href="https://cdn.fontshare.com" />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-    <!-- <ViewTransitions /> -->
+    <ViewTransitions />
   </head>
   <body class="relative overscroll-none">
     <slot name="loader" />
@@ -150,11 +150,7 @@ const schema = {
 
       const lenis = new Lenis();
 
-      lenis.on("scroll", (e) => {
-        console.log(e);
-      });
-
-      function raf(time) {
+      function raf(time: number) {
         lenis.raf(time);
         requestAnimationFrame(raf);
       }
