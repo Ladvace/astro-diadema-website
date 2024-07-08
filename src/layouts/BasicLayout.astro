@@ -19,51 +19,147 @@ interface Props {
   };
 }
 
-// TODO
-const schema = {};
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Diadema Studio",
+  url: "https://www.diadema.studio",
+  logo: "https://www.diadema.studio/images/logo.png",
+  description:
+    "Diadema Studio is a creative web agency based in Italy, specializing in innovative web design, development, and digital marketing solutions.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Via Example 123",
+    addressLocality: "Milan",
+    postalCode: "20100",
+    addressCountry: "IT",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+39-0123-456-789",
+    contactType: "Customer Service",
+    areaServed: "IT",
+    availableLanguage: ["Italian", "English"],
+  },
+  sameAs: [
+    "https://www.facebook.com/diademastudio",
+    "https://www.twitter.com/diademastudio",
+    "https://www.instagram.com/diademastudio",
+    "https://www.linkedin.com/company/diademastudio",
+  ],
+  founder: {
+    "@type": "Person",
+    name: "Your Name",
+    jobTitle: "Founder & CEO",
+    sameAs: "https://www.linkedin.com/in/yourprofile",
+  },
+  foundingDate: "2023-01-01",
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="/favicon/sitemap-index.xml" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <title>
+      Diadema Studio | Creative Web Design and Digital Marketing in Italy
+    </title>
+    <meta
+      name="description"
+      content="Transform your digital presence with Diadema Studio's innovative web design and marketing solutions. Based in Italy, we deliver creative excellence."
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Diadema Studio is a creative web agency based in Italy, specializing in innovative web design, development, and digital marketing solutions."
+    />
+    <meta
+      name="keywords"
+      content="Diadema Studio, creative web agency, web design, web development, digital marketing, Italy, branding, SEO, social media marketing"
+    />
+    <meta name="author" content="Diadema Studio" />
+    <title>Diadema Studio | Creative Web Agency in Italy</title>
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.origin} />
+    <meta
+      property="og:title"
+      content="Diadema Studio | Creative Web Agency in Italy"
+    />
+    <meta
+      property="og:description"
+      content="Diadema Studio is a creative web agency based in Italy, specializing in innovative web design, development, and digital marketing solutions."
+    />
+    <meta property="og:url" content="https://www.diadema.studio" />
     <meta
       property="og:image"
-      content={image || "https://diadema.studio/og-image.png"}
+      content="https://www.diadema.studio/images/og-image.jpg"
     />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:title"
+      content="Diadema Studio | Creative Web Agency in Italy"
+    />
+    <meta
+      name="twitter:description"
+      content="Diadema Studio is a creative web agency based in Italy, specializing in innovative web design, development, and digital marketing solutions."
+    />
+    <meta name="twitter:url" content="https://www.diadema.studio" />
     <meta
       name="twitter:image"
-      content={image || "https://diadema.studio/og-image.png"}
-    /> -->
+      content="https://www.diadema.studio/images/twitter-image.jpg"
+    />
+
+    <link rel="canonical" href="https://www.diadema.studio" />
+    <link rel="icon" href="https://www.diadema.studio/favicon.ico" />
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    <script
-      defer
-      src="https://cloud.umami.is/script.js"
-      data-website-id="04ef2638-4aac-4bb6-80fd-5ac4e003dfee"></script>
-    <ViewTransitions />
+
+    <!-- <ViewTransitions /> -->
   </head>
-  <body class="flex flex-col justify-center items-center overscroll-none">
+  <body class="relative overscroll-none">
     <slot name="loader" />
     <slot />
-  </body><script>
-    import { timeline, type TimelineDefinition } from "motion";
-    import { loaderAnimation } from "../../constants";
+    <script>
+      import { inView, animate } from "motion";
 
-    timeline([loaderAnimation] as TimelineDefinition);
-  </script>
+      inView(".loader", (info) => {
+        animate(
+          info.target,
+          { opacity: [1, 0], pointerEvents: "none" },
+          { easing: "ease-in-out", duration: 0.5 }
+        );
+      });
+    </script>
+    <script>
+      import { inView, animate } from "motion";
+
+      inView("h1, h2, h3, h4, h5, p", (info) => {
+        animate(
+          info.target,
+          { filter: ["blur(3px)", "blur(0px)"] },
+          { easing: "ease-in-out", duration: 0.5 }
+        );
+      });
+    </script>
+    <script>
+      import Lenis from "lenis";
+
+      const lenis = new Lenis();
+
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+  </body>
 </html>

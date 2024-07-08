@@ -2,13 +2,16 @@
 import Logo from "./Logo.astro";
 ---
 
-<header class="w-full flex flex-col h-navbar sf">
+<header class="w-full flex flex-col h-navbar">
   <div class="w-full p-5 h-20 flex justify-center items-center">
-    <Logo />
+    <span class="w-20 lg:w-15">
+      <Logo />
+    </span>
   </div>
-  <nav class="w-full flex justify-center items-center gap-10">
+  <nav class="hidden w-full lg:flex justify-center items-center gap-10">
     <a class="cursor-pointer">Projects</a>
     <a class="cursor-pointer">About</a>
     <a class="cursor-pointer">Services</a>
+    <!-- <a class="cursor-pointer">Contact</a> -->
   </nav>
 </header>

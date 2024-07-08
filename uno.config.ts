@@ -30,6 +30,18 @@ export default defineConfig({
       navbar: "104px",
       "body-with-navbar": "calc(100vh - 104px)",
     },
+    width: {
+      section: "calc(100vw - 2rem)",
+    },
+    top: {
+      "section-1": "1rem",
+      "section-2": "2rem",
+      "section-3": "3rem",
+      "section-4": "4rem",
+    },
+    padding: {
+      section: "2rem",
+    },
     colors: {
       secondary: {
         900: "#101018",
