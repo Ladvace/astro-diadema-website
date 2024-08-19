@@ -20,7 +20,7 @@ const ContactForm = () => {
   }
 
   return (
-    <form onsubmit={submit} class="flex-1">
+    <form onsubmit={(e) => submit(e)} class="flex-1">
       <div class="mb-4">
         <label for="name" class="block text-secondary-200 mb-2">
           Name
